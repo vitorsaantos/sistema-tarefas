@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register | Sistema de Tarefas</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="first_name">
+
+        <label for="lastname">Sobrenome</label>
+        <input type="text" id="lastname" name="last_name">
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" name="username">
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="password1">
+        
+        <label for="confirmar-senha">Confirmar senha</label>
+        <input type="password" id="confirmar-senha" name="password2">
+
+        <input type="checkbox" id="aceita-termos" name="aceita_termos">
+        <label for="aceita-termos">
+            Li e aceito os <a href="/termos/">termos de uso</a> e a
+            <a href="/privacidade/">política de privacidade</a>.
+        </label>
+        
+        {{form.errors}}
+
+        <button type="submit">CRIAR CONTA</button>
+        <a href="{% url 'login' %}">Voltar para o login</a>
+
+    </form>
+</body>
+</html>
